@@ -2,8 +2,10 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Store from './pages/store/Store';
 import Navbar from './components/navbar/Navbar';
-import Shopping from './pages/shopping/Shopping';
 import Login from './pages/login/Login';
+import ProductPage from './pages/product/productPage/ProductPage';
+import ShoppingPage from './pages/shopping/ShoppingPage';
+import Footer from './components/footer/Footer';
 function App() {
   return (
     <>
@@ -11,11 +13,13 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Store' element={<Store />} />
-        <Route path='/Shopping' element={<Shopping />} />
+        <Route path='/shoppingPage' element={ <ShoppingPage/> }/>
         <Route path='/Login' element={<Login />} />
+        <Route path='/ProductPage/:id' element={<ProductPage />} />
       </Routes>
+      <Footer />
     </>
   )
 }
 
-export default App
+export default App;
