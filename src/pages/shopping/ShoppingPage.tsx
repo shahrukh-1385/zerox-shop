@@ -1,15 +1,21 @@
 import Container from "../../components/container/Container";
 import PersianNumber from "../../components/persianNumber/PersianNumber";
 import ShoppingCartItem from "./shoppingCartItem/ShoppingCartItem";
+import { useShoppingCardContext } from "../../hooks/shoppingCardItemHooks/shoppingCardItemHooks";
+import { useEffect, useState } from "react";
+import { getPruductByID } from "../../servises/Api";
 function ShoppingPage() {
+  const {cartItem } = useShoppingCardContext();
+
+  const cartItems = cartItem.map((item, index) => {
+    return(
+      <ShoppingCartItem key={index} {...item}/>
+    )
+  })
   return (
     <Container>
       <div className="">
-        <ShoppingCartItem />
-        <ShoppingCartItem />
-        <ShoppingCartItem />
-        <ShoppingCartItem />
-        <ShoppingCartItem />
+        {cartItems}
       </div>
       <div className="flex flex-col items-end mr-4">
         <span>قیمت کالاها: {PersianNumber(1000)}</span>

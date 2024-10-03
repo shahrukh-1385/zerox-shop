@@ -2,7 +2,6 @@
 import ButtonShopping from '../../../components/button/buttonShopping/ButtonShopping';
 import PersianNumber from '../../../components/persianNumber/PersianNumber';
 function NewProduct({ title, price,image}:any) {
-
   return (
     <div className='bg-gray-100 p-2 text-center w-52 rounded-lg h-80 justify-center flex flex-col'>
       <img src={image} alt="محصول" className='rounded-lg h-40 ' />

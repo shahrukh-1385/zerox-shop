@@ -4,9 +4,25 @@ import Container from "../../../components/container/Container";
 import { useEffect, useState } from "react";
 import { getPruductByID } from "../../../servises/Api";
 import PersianNumber from "../../../components/persianNumber/PersianNumber";
-function ProductPage() {
-  const [product, setProduct] = useState<any>([]);
+import { useShoppingCardContext } from "../../../hooks/shoppingCardItemHooks/shoppingCardItemHooks";
+
+  interface productType {
+    id: string,
+    image: string,
+    description: string,
+    category: string,
+    rating: {
+      count: number
+      rate: number
+    },
+    price: number,
+    title: string
+  }
+
+function ProductPage() {  
+  const [product, setProduct] = useState<productType>();
   const params = useParams();
+  const {addProduct} = useShoppingCardContext();
   useEffect(() => {
     if (params.id) {
       getPruductByID(params.id).then((result) => {
@@ -16,6 +32,7 @@ function ProductPage() {
       });
     }
   }, [params.id]);
+
   return (
     <Container>
       <div className="mt-6 grid grid-cols-12 h-96 mb-7">
@@ -25,9 +42,9 @@ function ProductPage() {
             <p className=" h-60 mr-5 font-vazirmatn400 text-base mt-7">{product?.description}</p>
           </div>
           <div className="mx-4 mb-3 flex justify-start">
-            <ButtonShopping onClick={()=>{console.log(`clicked!`)}}>
-              <i className="fa-solid fa-cart-shopping cursor-pointer text-base text-gray-100"></i> افزودن به
-            </ButtonShopping>
+                <ButtonShopping onClick={() => { addProduct(params.id ?? "") }}>
+                  <i className="fa-solid fa-cart-shopping cursor-pointer text-base text-gray-100"></i> افزودن به
+                </ButtonShopping>
           </div>
         </div>
         <div className="col-span-2 p-4 bg-yellow rounded-r-2xl flex flex-col justify-between">

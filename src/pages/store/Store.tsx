@@ -1,21 +1,10 @@
 import { Link } from "react-router-dom";
 import Container from "../../components/container/Container";
 import NewProduct from "../product/newProduct/NewProduct";
-import { useEffect, useState } from "react";
-import { getPruducts } from "../../servises/Api";
+import { useShoppingCardContext } from "../../hooks/shoppingCardItemHooks/shoppingCardItemHooks";
 
 function Store() {
-  const [products, setProducts] = useState([]);
-  
-  useEffect(() => {
-    getPruducts().then((result) => {
-      console.log(result);
-      setProducts(result);
-    }).catch((err) => {
-      console.log(err);
-    });
-  }, []);
-  
+  const {products} = useShoppingCardContext();
   return (
     <Container>
       <section className="mt-6 p-5">
