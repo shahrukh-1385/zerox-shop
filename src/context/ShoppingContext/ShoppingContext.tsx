@@ -18,7 +18,10 @@ interface products {
    price: number,
    description: string,
 }
+type user = string | null;
+
 interface shoppingCardContextType {
+   isLogin: user,
    shopQty: number,
    products: products[],
    cartItem: cartItem[],
@@ -26,7 +29,9 @@ interface shoppingCardContextType {
    reduceProduct: (id: string) => void,
    getProductNumber: (id: string) => number,
    removeProduct: (id: string) => void,
+   setIsLogin: React.Dispatch<React.SetStateAction<user>>;
 }
+
 // export files:
 
 export const shoppingCardContext = createContext({} as shoppingCardContextType);
@@ -36,7 +41,7 @@ export const shoppingCardContext = createContext({} as shoppingCardContextType);
 export function ShoppingCardItem({ children }: ShoppingCardItemProvider) {
    const [cartItem, setCartItem] = uselocalstorageShopItem<cartItem[]>('cartItem',[]);
    const [products, setProducts] = useState<products[]>([]);
-
+   const [isLogin, setIsLogin] = useState<user>(null);
    // show products in new product 
    useEffect(() => {
       getPruducts().then((result) => {
@@ -97,25 +102,29 @@ export function ShoppingCardItem({ children }: ShoppingCardItemProvider) {
             });
          }
       })
-   }
+   };
 
+   // get Qty
    const getProductNumber = (id: string) => {
       // change type to number:
       const ParsIntID = parseInt(id);
       // if for find product
       return cartItem.find((item) => item.id === ParsIntID)?.productNumber || 0;
-   }
+   };
+
+   // remove
    const removeProduct = (id: string) => {
       // change type to number:
       const ParsIntID = parseInt(id);
       // Remove an item from the shopping cart
       setCartItem(cartItem => cartItem.filter((item) => item.id !== ParsIntID));
-   }
+   };
+
    // for red circle shop in navbar
    const shopQty = cartItem.reduce((Qty, item) => Qty + item.productNumber, 0);
 
    return (
-      <shoppingCardContext.Provider value={{ shopQty, cartItem, products, addProduct, reduceProduct, getProductNumber, removeProduct }}>
+      <shoppingCardContext.Provider value={{isLogin, shopQty, cartItem, products, addProduct, reduceProduct, getProductNumber, removeProduct, setIsLogin}}>
          {children}
       </shoppingCardContext.Provider>
    );

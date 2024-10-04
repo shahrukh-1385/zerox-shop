@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import testImg from '../../../assets/img/test-img.webp';
 import { useShoppingCardContext } from '../../../hooks/shoppingCardItemHooks/shoppingCardItemHooks';
 import { getPruductByID } from '../../../servises/Api';
 

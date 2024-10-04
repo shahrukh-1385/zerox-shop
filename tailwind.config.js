@@ -25,6 +25,7 @@ export default {
       "green": "#32CD32",
       "yellow": "#f6f100",
       "backGround": "#e9e9e9",
+      "white": "#fff",
     },
     extend: {
       fontFamily: {

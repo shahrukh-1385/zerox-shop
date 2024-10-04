@@ -2,8 +2,6 @@ import Container from "../../components/container/Container";
 import PersianNumber from "../../components/persianNumber/PersianNumber";
 import ShoppingCartItem from "./shoppingCartItem/ShoppingCartItem";
 import { useShoppingCardContext } from "../../hooks/shoppingCardItemHooks/shoppingCardItemHooks";
-import { useEffect, useState } from "react";
-import { getPruductByID } from "../../servises/Api";
 function ShoppingPage() {
   const {cartItem } = useShoppingCardContext();
 

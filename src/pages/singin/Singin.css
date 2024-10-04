@@ -1,43 +1,38 @@
 .overlay {
-  height: 70vh;
-  margin: 9vh 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.LoginPage {
-  width: 35%;
-  height: 85%;
-  background-color: #fff;
-  z-index: 2;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+   height: 70vh;
+   margin: 9vh 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+.LoginPage{
+   width: 35%;
+   height: 85%;
+   background-color: #fff;
+   z-index: 2;
+   border-radius: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
   flex-direction: column;
 }
-
-.register {
+.register{
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 70%;
 }
-
-h1 {
+h1{
   color: #2c2c2cd3;
 }
-
-.input-group-add {
+.input-group-add{
   position: relative;
   margin: 10px 0;
   direction: rtl;
   width: 100%;
   margin-right: 20px;
 }
-
-.input-group-add label {
+.input-group-add label{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -48,7 +43,6 @@ h1 {
   font-size: 18px;
   right: 5px;
 }
-
 .input-group-add input {
   width: 90%;
   height: 30px;
@@ -58,48 +52,29 @@ h1 {
   border: 1px solid #000;
   outline: none;
   border-radius: 5px;
+
 }
-#pass{
-  width: 80%;
-  border: none;
-}
-.fa-eye{
-  font-size: 17px;
-}
-.fa-eye-slash{
-  font-size: 17px;
-}
-#input-group-pass{
-  width: 90%;
-  margin-right: -10px;
-}
-input:focus {
+input:focus{
   border: 1px solid rgb(89, 255, 47);
   transition: 0.3s;
 }
-
-.input-group-add input:focus~label,
-.input-group-add input:valid~label {
+.input-group-add input:focus~label,.input-group-add input:valid~label{
   top: -2px;
   font-size: 15px;
   color: rgb(89, 255, 47);
   background-color: #fff;
 }
-
-.input:valid {
+.input:valid{
   font-size: 18px;
 }
-
 .input-group-add input.error {
   border: 1px solid red;
 }
-
 .error-message {
   color: red;
   font-size: 12px;
 }
-
-.submit-add {
+.submit-add{
   width: 80%;
   height: 30px;
   font-family: vazirmatn500;
@@ -109,19 +84,16 @@ input:focus {
   cursor: pointer;
   margin-top: 20px;
 }
-
 .submit-add:hover {
   background-color: rgba(72, 206, 38, 0.76);
   border: rgb(72, 206, 38);
   color: #fff;
   transition: all 0.3s;
 }
-
-.sing-in-link {
-  color: blue;
-  cursor: pointer;
+.sing-in-link{
+   color: blue;
+   cursor: pointer;
 }
-
-.sing-in {
-  margin-top: 20px;
+.sing-in{
+   margin-top: 20px;  
 }
