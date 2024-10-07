@@ -39,10 +39,10 @@ export const shoppingCardContext = createContext({} as shoppingCardContextType);
 
 // ShoppingCardItem
 export function ShoppingCardItem({ children }: ShoppingCardItemProvider) {
-   const [cartItem, setCartItem] = uselocalstorageShopItem<cartItem[]>('cartItem',[]);
+   const [cartItem, setCartItem] = uselocalstorageShopItem<cartItem[]>('cartItem', []);
    const [products, setProducts] = useState<products[]>([]);
    const [isLogin, setIsLogin] = useState<user>(null);
-   
+
    // show products in new product 
    useEffect(() => {
       getPruducts().then((result) => {
@@ -125,7 +125,18 @@ export function ShoppingCardItem({ children }: ShoppingCardItemProvider) {
    const shopQty = cartItem.reduce((Qty, item) => Qty + item.productNumber, 0);
 
    return (
-      <shoppingCardContext.Provider value={{isLogin, shopQty, cartItem, products, addProduct, reduceProduct, getProductNumber, removeProduct, setIsLogin}}>
+      <shoppingCardContext.Provider
+         value={{
+            isLogin,
+            shopQty,
+            cartItem,
+            products,
+            addProduct,
+            reduceProduct,
+            getProductNumber,
+            removeProduct,
+            setIsLogin
+         }}>
          {children}
       </shoppingCardContext.Provider>
    );

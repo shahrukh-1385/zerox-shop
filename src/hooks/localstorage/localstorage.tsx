@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 
 export function uselocalstorageShopItem<T>(key: string, value: T) {
@@ -17,6 +17,9 @@ export function uselocalstorageShopItem<T>(key: string, value: T) {
    return [values, setvalues] as [typeof values, typeof setvalues];
 };
 
+
+
+
 interface Theme {
    background: '#e9e9e9' | "#162447";
    color: '#e9e9e9' | "#162447";
@@ -31,7 +34,5 @@ export function uselocalstorageTheme(key: string, Value: Theme) {
    useEffect(() => {
       localStorage.setItem(key, JSON.stringify(theme));
    }, [key, theme]);
-
-   console.log(`Theme::: ${JSON.stringify(theme)}`);
    return { theme, setTheme };
 }

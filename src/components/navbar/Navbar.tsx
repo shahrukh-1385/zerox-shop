@@ -3,10 +3,13 @@ import Container from "../container/Container";
 import { useShoppingCardContext } from "../../hooks/shoppingCardItemHooks/shoppingCardItemHooks";
 import { uselocalstorageTheme } from "../../hooks/localstorage/localstorage";
 
-
 function Navbar() {
    const { isLogin, shopQty } = useShoppingCardContext();
-   const { theme, setTheme } = uselocalstorageTheme('appTheme', { background: '#e9e9e9', color: '#162447' });
+   const { theme, setTheme } = uselocalstorageTheme('appTheme',
+      {
+         background: '#e9e9e9', color: '#162447'
+
+      });
 
    const toggleTheme = () => {
       setTheme(prevTheme => ({
